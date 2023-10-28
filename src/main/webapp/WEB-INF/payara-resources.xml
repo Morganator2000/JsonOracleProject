@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//Payara.fish//DTD Payara Server 4 Resource Definitions//EN" "https://raw.githubusercontent.com/payara/Payara-Enterprise-Documentation/master/docs/modules/ROOT/pages/schemas/payara-resources_1_6.dtd">
+<resources>
+
+  <!-- Your Existing Custom Resource -->
+  <custom-resource
+    res-type="java.util.Properties"
+    jndi-name="jndi/example-properties" 
+    factory-class="org.glassfish.resources.custom.factory.PropertiesFactory"
+    >
+    <property name="property1" value="" />
+
+  </custom-resource>
+
+  <!-- JDBC Connection Pool Definition -->
+  <jdbc-connection-pool 
+    name="OraclePool" 
+    datasource-classname="oracle.jdbc.pool.OracleDataSource" 
+    res-type="javax.sql.DataSource">
+    <property name="URL" value="jdbc:oracle:thin:@localhost:1521:orcl1"/>
+    <property name="User" value="myjsondb"/>
+    <property name="Password" value="json"/>
+    <property name="DriverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+    <!-- Any other properties you want to set -->
+  </jdbc-connection-pool>
+
+  <!-- JDBC Resource Definition -->
+  <jdbc-resource 
+    enabled="true" 
+    jndi-name="jdbc/myOracleDataSource" 
+    object-type="user" 
+    pool-name="OraclePool"/>
+
+</resources>
