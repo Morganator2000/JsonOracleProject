@@ -1,7 +1,7 @@
--- Use your desired schema or stick with the default user schema
+
 -- CREATE USER myjsondb IDENTIFIED BY password;
 -- GRANT CONNECT, RESOURCE TO myjsondb;
--- CONNECT myjsondb/password;
+-- CONNECT myjsondb/json;
 
 -- Create a table to store JSON data
 CREATE TABLE json_data (
